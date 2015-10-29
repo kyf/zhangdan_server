@@ -55,7 +55,10 @@ func main() {
 		if err != nil {
 			panic(err)
 		}
-		defer fp.Close()
+		defer func() {
+			fp.Close()
+			os.Remove(attach)
+		}()
 		fp.Write([]byte(body))
 		m.Attach(attach)
 
