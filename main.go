@@ -62,7 +62,7 @@ func main() {
 		fp.Write([]byte(body))
 		m.Attach(attach)
 
-		d := gomail.NewPlainDialer("smtp.163.com", 25, "kyf456", "1501330364kyf")
+		d := gomail.NewPlainDialer("smtp.163.com", 25, "user", "password")
 
 		if err := d.DialAndSend(m); err != nil {
 			panic(err)
